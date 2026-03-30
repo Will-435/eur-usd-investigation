@@ -1,6 +1,9 @@
 '''
 Requirmnet for the project.
 These shoudl be installed inside of the virtul environment.
+
+Ignore versions, could be out of date
+Add except catches to debug any out of date libraries where I can
 '''
 
 # eur_usd_pipeline/requirements.txt
@@ -18,16 +21,16 @@ textblob>=0.17.1
 vaderSentiment>=3.3.2
 gnews>=0.3.7
 
-# Statistical modelling
+# Statistical modeling
 statsmodels>=0.14.0
 scipy>=1.11.0
 scikit-learn>=1.3.0
 
-# Visualization
+# Visualisation
 matplotlib>=3.7.0
 seaborn>=0.12.0
 plotly>=5.15.0
 
-# Utilities
+# Utilitis
 python-dateutil>=2.8.2
 tqdm>=4.65.0
