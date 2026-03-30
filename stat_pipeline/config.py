@@ -2,31 +2,35 @@
 """
 Global configuration for the EUR/USD macro pipeline.
 All API keys, date ranges, and shared parameters live here.
+
+To check all listed below.
+Double check for spelling mistakes and typos that could cause critical crash's 
+Triple check to avoid what happened with the oil-vol pipeline
 """
 
 # ──────────────────────────────────────────────────────────────
-# API KEYS — replace placeholder strings with your real keys
+# API KEYS — I will replace the real APIs when the approval comes back from the fed. 
+# I have used placeholders for now.
 # ──────────────────────────────────────────────────────────────
 
-# Free from: https://fred.stlouisfed.org/docs/api/api_key.html
-FRED_API_KEY = "YOUR_FRED_API_KEY_HERE"  # <-- paste your FRED key
+FRED_API_KEY = "FRED_API-KEY" 
 
-# GNews — free tier (100 requests/day, no key required for basic use)
-# If you register at https://gnews.io/ you get higher limits
-GNEWS_API_KEY = "YOUR_GNEWS_API_KEY_HERE"  # <-- paste if you have one, otherwise leave as-is
+# GNews - shit but does the job
+GNEWS_API_KEY = "gnews_API"
 
 # ──────────────────────────────────────────────────────────────
 # DATE RANGE
 # ──────────────────────────────────────────────────────────────
 
-START_DATE = "2017-01-01"   # Extended back to 2017 to avoid COVID/Ukraine skew
-END_DATE = "2026-03-30"     # Current date — will auto-clip to last available data
+# 2017 might seem random, but it gives data for pre ukraine and covid
+START_DATE = "2017-01-01"   
+END_DATE = "2026-03-30"    # Will need to update when final run 
 
 # ──────────────────────────────────────────────────────────────
 # FORECAST HORIZONS (months)
 # ──────────────────────────────────────────────────────────────
 
-FORECAST_HORIZONS = [12, 24]  # 1-year and 2-year forward projections
+FORECAST_HORIZONS = [12, 24]  # We havent decided on the horizon yet. MAybe 1, maybe 2 years (12, 24 months)
 
 # ──────────────────────────────────────────────────────────────
 # YFINANCE TICKER MAP
@@ -34,17 +38,19 @@ FORECAST_HORIZONS = [12, 24]  # 1-year and 2-year forward projections
 
 TICKERS = {
     "eurusd": "EURUSD=X",          # EUR/USD spot rate
-    "brent":  "BZ=F",              # Brent Crude front-month future
-    "us2y":   "2YY=F",             # 2-Year US Treasury yield future
-    "us10y":  "^TNX",              # 10-Year US Treasury yield (backup)
+    "brent":  "BZ=F",              # Brent Crude front month future price
+    "us2y":   "2YY=F",             # 2-Year US Treasury yield future 
+    "us10y":  "^TNX",              # 10-Year uS Treasury yield  - this one is just in case 2 year gilts are corrupt. this will slow the model massively
     "dxy":    "DX-Y.NYB",          # US Dollar Index
-    "euro_index": "EURUSD=X",      # Proxy — true Euro index not on yfinance
-    "vix":    "^VIX",              # CBOE Volatility Index (risk proxy)
+    "euro_index": "EURUSD=X",      # Proxy — the real EUR index isnt on yfinance, and I dont know how to get a better source, but this is a valid replica
+    "vix":    "^VIX",              # CBOE Volatility Index - from oil pipeline
 }
 
 # ──────────────────────────────────────────────────────────────
 # FRED SERIES IDS
 # ──────────────────────────────────────────────────────────────
+# These are from chat - need to double check they exist and are live
+# COnfirm here after I have checked - Confirmed?: 
 
 FRED_SERIES = {
     "us_2y_yield":   "DGS2",       # 2-Year US Treasury constant maturity
@@ -69,11 +75,11 @@ FRED_SERIES = {
 # ──────────────────────────────────────────────────────────────
 
 COT_CONFIG = {
-    # CFTC bulk CSV URL template — financial futures (disaggregated)
+    # CFTC bulk CSV URL template — financial futures, csv needs to be cleaned (sepr file later on)
     "base_url": "https://www.cftc.gov/files/dea/history/fin_fut_disagg_txt_{year}.zip",
     # Euro FX contract code in CFTC data
     "euro_fx_code": "099741",
-    # Years to pull (will be clipped to START_DATE/END_DATE)
+    # Years to pull (will be clipped to aformentioned start and end dtaes above^)
     "years": list(range(2017, 2027)),
 }
 
