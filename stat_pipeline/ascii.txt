@@ -1,6 +1,6 @@
-# The ascii tree for the pipeline is laid out here
-# ** This is still te first draft, layouts may have been changed, files might have been added/removed to improve the pipeline
-# Will edit as needed throughout the coding process
+ The ascii tree for the pipeline is laid out here
+ ** This is still te first draft, layouts may have been changed, files might have been added/removed to improve the pipeline
+ Will edit as needed throughout the coding process
 
 eur_usd_pipeline/
 │
