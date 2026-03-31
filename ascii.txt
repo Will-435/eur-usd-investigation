@@ -1,0 +1,46 @@
+# The ascii tree for the pipeline is laid out here
+# ** This is still te first draft, layouts may have been changed, files might have been added/removed to improve the pipeline
+# Will edit as needed throughout the coding process
+
+eur_usd_pipeline/
+│
+├── config.py                          # API keys date ranges and global paramaters
+├── main.py                            # Orchestrates full pipeline
+├── requirements.txt
+├── README.md                          # Note done yet - leave until end though
+│
+├── data/
+│   ├── __init__.py
+│   ├── fetch_fx.py                    # EUR/USD spot using yfinance
+│   ├── fetch_yields.py                # US 2Y Treasury & German 2Y Bund (bc ECB doesnt issue, Ger dominates EU economically)
+│   ├── fetch_oil.py                   # Brent Crude prices
+│   ├── fetch_cot.py                   # CFTC Commitments of Traders
+│   ├── fetch_risk_reversals.py        # 25-delta risk reversals (synthetic)
+│   └── fetch_macro.py                 # CPI differentials, PMI anf rate diffs
+│
+├── features/
+│   ├── __init__.py
+│   ├── sentiment.py                   # News sentiment via APIs (standard free ones, easy point of upgrade for future?)
+│   ├── technical.py                   # RSI, MACD, Bollinger, momentum
+│   ├── spreads.py                     # Yield spreads, ToT construction
+│   └── engineer.py                    # Master feature builder/merger
+│
+├── models/
+│   ├── __init__.py
+│   ├── var_model.py                   # Vector Autoregression model
+│   ├── glm_model.py                   # GLM (Gamma/Gaussian families) - Generalised Linear Model
+│   ├── granger.py                     # Granger causality tests - Need to improve understanding before writing the code structure
+│   └── forecast.py                    # Forecast comparison & diagnostics
+│
+├── visualization/
+│   ├── __init__.py
+│   ├── yield_spread_plot.py           # Yield spread vs EUR/USD spot
+│   ├── terms_of_trade_plot.py         # Brent (inverted) vs Euro index
+│   ├── cot_plot.py                    # Net speculative positioning
+│   ├── risk_reversal_plot.py          # 25 delta RR overlay
+│   ├── model_plots.py                 # VAR vs GLM comparison visuals - Ho mcuh information can we capture assuming linear relationships between variables?
+│   └── dashboard.py                   # Combined summary dashboard
+│
+└── utils/
+    ├── __init__.py
+    └── helpers.py                     # Date alignment, stationarity, I/O
