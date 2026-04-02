@@ -6,7 +6,7 @@ time series modelling, and NLP sentiment scoring.
 
 ### Note
 
-Part of this README.md file has been edited using AI, but all revisions have been checked and correct
+Part of this README.md file has been edited using AI, but all revisions have been checked and corrected
 
 ---
 
