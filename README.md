@@ -4,6 +4,9 @@ A comprehensive Python pipeline that examines whether the Euro will appreciate
 against the US Dollar over a 1–2 year horizon, using multi-factor macro analysis,
 time series modelling, and NLP sentiment scoring.
 
+** Note
+Part of this README.md file has been edited using AI, but all revisions have been checked and correct
+
 ---
 
 ## Thesis
