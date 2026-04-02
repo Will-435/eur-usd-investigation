@@ -39,11 +39,9 @@
 
 ### William Barry - complete sections 6 & 8 (+ begin 1)
 * Update Repository: Update repository files to reflect the 2-year Euro appreciation/depreciation thesis.
-* Convert Report: Convert the current document into the required LaTeX report format.
 * Fix Models: Fix technical issues within the vector order regression model and the correlation matrix.
 * Write Verification: Write up the quantitative verification section using the standard template.
-* Write Verification: Write up the quantitative verification section using the standard template.
-* **Corrolation Matrix:** Apply the Block CPA/Hierarchical Factor Analysis to the corrolation matrix to improve signal to noise ratio.
+* Corrolation Matrix: Apply the Block CPA/Hierarchical Factor Analysis to the corrolation matrix to improve signal to noise ratio.
 * Research Geopolitics: Deliver geopolitical and macroeconomic factors that could impact EUR/USD (focus on terms of trade qualitative analysis; that is what is the economic "buffer" of the euro - will the shrinking car exports of germany be an issue for example?.
 
 ### Joint Actions
