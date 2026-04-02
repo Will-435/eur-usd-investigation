@@ -84,12 +84,12 @@ pip install -r requirements.txt
 
 Edit `config.py` and replace the placeholder strings:
 ```python
-FRED_API_KEY = "YOUR_FRED_API_KEY_HERE"   # Get free from fred.stlouisfed.org
-GNEWS_API_KEY = "YOUR_GNEWS_API_KEY_HERE" # Optional — basic use works without
+FRED_API_KEY = "fred api key"   # this will need to be requested from the fred website
+GNEWS_API_KEY = "gnews api key" # gnews is basic but has a working and free api, which is ideal for me
 ```
 
 The FRED API key is **required** for US Treasury yield and macro data.
-Register for free at [https://fred.stlouisfed.org/docs/api/api_key.html](https://fred.stlouisfed.org/docs/api/api_key.html).
+Register: [https://fred.stlouisfed.org/docs/api/api_key.html](https://fred.stlouisfed.org/docs/api/api_key.html).
 
 ### 3. Run the pipeline
 ```bash
