@@ -20,12 +20,8 @@
 ### Long-Term Strategy & Thesis
 * The central thesis is to determine the Euro's appreciation or depreciation over a two-year period.
 * The team will shift focus to long-term indicators, such as the volatility index, rather than relying solely on near-term data.
-* William Barry highlighted the need to investigate long-term European and American policies impacting the EU's oil reliance, which is essential for defining risk scenarios where their thesis might become redundant.
+* Will Barry highlighted the need to investigate long-term European and American policies impacting the EU's oil reliance, which is essential for defining risk scenarios where their thesis might become redundant.
 * They discussed integrating both a short-term dip and a long-term long position to strengthen the overall trade recommendation.
-
-### Extracurricular / Fund Updates
-* The team discussed the Bristol Parent Fund, which trades with real money and adds a layer of seriousness to their work.
-* The fund has achieved consistent 34% returns, largely due to its significant exposure to the strong South Korean stock market index.
 
 ---
 
