@@ -23,48 +23,52 @@ The pipeline analyses five core channels:
 
 ## Project Structure
 ```
+ The ascii tree for the pipeline is laid out here
+ ** This is still te first draft, layouts may have been changed, files might have been added/removed to improve the pipeline
+ Will edit as needed throughout the coding process
+
 eur_usd_pipeline/
 │
-├── config.py                          # API keys, date ranges, global params
+├── config.py                          # API keys date ranges and global paramaters
 ├── main.py                            # Orchestrates full pipeline
 ├── requirements.txt
-├── README.md
+├── README.md                          # Note done yet - leave until end though
 │
 ├── data/
-│   ├── fetch_fx.py                    # EUR/USD spot, DXY, VIX via yfinance
-│   ├── fetch_yields.py                # US 2Y (FRED) & German 2Y (ECB SDW)
-│   ├── fetch_oil.py                   # Brent Crude + Terms of Trade proxy
+│   ├── __init__.py
+│   ├── fetch_fx.py                    # EUR/USD spot using yfinance
+│   ├── fetch_yields.py                # US 2Y Treasury & German 2Y Bund (bc ECB doesnt issue, Ger dominates EU economically)
+│   ├── fetch_oil.py                   # Brent Crude prices
 │   ├── fetch_cot.py                   # CFTC Commitments of Traders
-│   ├── fetch_risk_reversals.py        # Synthetic 25Δ risk reversal model
-│   └── fetch_macro.py                 # CPI, rates, PMI, current account
+│   ├── fetch_risk_reversals.py        # 25-delta risk reversals (synthetic)
+│   └── fetch_macro.py                 # CPI differentials, PMI anf rate diffs
 │
 ├── features/
-│   ├── sentiment.py                   # NLP sentiment (VADER + TextBlob)
-│   ├── technical.py                   # RSI, MACD, Bollinger, Hurst, etc.
-│   ├── spreads.py                     # Yield spreads, carry index, ToT
-│   └── engineer.py                    # Master feature builder + pipeline
+│   ├── __init__.py
+│   ├── sentiment.py                   # News sentiment via APIs (standard free ones, easy point of upgrade for future?)
+│   ├── technical.py                   # RSI, MACD, Bollinger, momentum
+│   ├── spreads.py                     # Yield spreads, ToT construction
+│   └── engineer.py                    # Master feature builder/merger
 │
 ├── models/
-│   ├── var_model.py                   # Vector Autoregression + IRF + FEVD
-│   ├── glm_model.py                   # GLM (multi-specification comparison)
-│   ├── granger.py                     # Granger causality (extended analysis)
-│   └── forecast.py                    # Forecast comparison + thesis verdict
+│   ├── __init__.py
+│   ├── var_model.py                   # Vector Autoregression model
+│   ├── glm_model.py                   # GLM (Gamma/Gaussian families) - Generalised Linear Model
+│   ├── granger.py                     # Granger causality tests - Need to improve understanding before writing the code structure
+│   └── forecast.py                    # Forecast comparison & diagnostics
 │
-├── visualisations/
-│   ├── yield_spread_plot.py           # Yield spread vs EUR/USD
-│   ├── terms_of_trade_plot.py         # Inverted Brent vs EUR/USD
-│   ├── cot_plot.py                    # COT positioning + squeeze zones
-│   ├── risk_reversal_plot.py          # 25Δ RR proxy + regime analysis
-│   ├── model_plots.py                 # VAR/GLM forecasts, IRF, FEVD, Granger
-│   └── dashboard.py                   # Combined multi-panel dashboard
+├── visualization/
+│   ├── __init__.py
+│   ├── yield_spread_plot.py           # Yield spread vs EUR/USD spot
+│   ├── terms_of_trade_plot.py         # Brent (inverted) vs Euro index
+│   ├── cot_plot.py                    # Net speculative positioning
+│   ├── risk_reversal_plot.py          # 25 delta RR overlay
+│   ├── model_plots.py                 # VAR vs GLM comparison visuals - Ho mcuh information can we capture assuming linear relationships between variables?
+│   └── dashboard.py                   # Combined summary dashboard
 │
-├── utils/
-│   └── helpers.py                     # Stationarity, alignment, I/O, cleaning
-│
-└── output/                            # Generated at runtime
-    ├── data/                          # CSV data files
-    ├── models/                        # Model results + diagnostics
-    └── plots/                         # PNG visualisations
+└── utils/
+    ├── __init__.py
+    └── helpers.py                     # Date alignment, stationarity, I/O
 ```
 
 ---
